@@ -3,19 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ristinolla.ristinolla;
+package logiikka;
 
 /**
  *
  * @author veerakoskinen
  */
-public class Main {
-    public static void main(String[] args) {
-        
-    }
+public class Pelilauta {
     
-    public static int k() {
-        return 1;
+    public Pelilauta() {
+        
     }
     
 }
