@@ -43,100 +43,20 @@ public class PeliMerkkiTest {
 
     @Test
     public void konstruktoriAsettaaPelaajanOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        assertEquals(2,m.getPelaajaId());
+        PeliMerkki m = new PeliMerkki('x', 2, 3); 
+        assertEquals(2,m.getX());
     }
-    
-//    @Test
-//    public void konstruktoriAsettaaJarjestysluvunOikein() {
-//        PeliMerkki m = new PeliMerkki(2,1); 
-//        assertEquals(1,m.getpaikkaJonossa());
-//    }
     
     @Test 
     public void konstruktoriAsettaaMerkinOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x');
+        PeliMerkki m = new PeliMerkki('x', 2, 3);
         assertEquals('x',m.getMerkki());
     }
     
     @Test
     public void konstruktoriAsettaaXkoordinaatinOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        assertEquals(20,m.getX());
-    }
-    
-    @Test
-    public void konstruktoriAsettaaYkoordinaatinOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        assertEquals(20,m.getY());
-    }
-    
-    // metodin setXJaY testaus
-    
-    @Test
-    public void setXJaYAsettaaArvonXOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        m.setXJaY(2,3);
-        assertEquals(2,m.getX());
-    }
-    
-    @Test
-    public void setXJaYJattaaArvonXAsettamattaJosArvoOnPelialueenUlkopuolella() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        m.setXJaY(8,3);
-        assertEquals(20,m.getX());
-    } 
-    
-    @Test
-    public void setXJaYAsettaaArvonYOikein() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        m.setXJaY(2,3);
+        PeliMerkki m = new PeliMerkki('x', 2, 3);; 
         assertEquals(3,m.getY());
     }
-    
-    @Test
-    public void setXJaYJattaaArvonYAsettamattaJosArvoOnPelialueenUlkopuolella() {
-        PeliMerkki m = new PeliMerkki(2,'x'); 
-        m.setXJaY(4,9);
-        assertEquals(20,m.getY());
-    } 
-    
-    // compareTo testit
-//    
-//    @Test
-//    public void compareToPalauttaaArvotHalutussaJarjestyksessa1() {
-//        PeliMerkki m = new PeliMerkki(1,1);
-//        PeliMerkki s = new PeliMerkki(2,1);
-//        assertEquals(1,m.compareTo(s));
-//        
-//    }
-//    
-//    @Test
-//    public void compareToPalauttaaArvotHalutussaJarjestyksessa2() {
-//        PeliMerkki m = new PeliMerkki(2,1);
-//        PeliMerkki s = new PeliMerkki(1,1);
-//        assertEquals(-1,m.compareTo(s));
-//    }
-//    
-//    @Test
-//    public void compareToPalauttaaArvotHalutussaJarjestyksessa3() {
-//        PeliMerkki m = new PeliMerkki(1,5);
-//        PeliMerkki s = new PeliMerkki(2,4);
-//        assertEquals(-1,m.compareTo(s));
-//    }
-//    
-//    @Test
-//    public void compareToPalauttaaArvotHalutussaJarjestyksessa4() {
-//        PeliMerkki m = new PeliMerkki(1,8);
-//        PeliMerkki s = new PeliMerkki(2,9);
-//        assertEquals(1,m.compareTo(s));
-//    }
-//    
-//    @Test
-//    public void compareToPalauttaaArvotHalutussaJarjestyksessa5() {
-//        PeliMerkki m = new PeliMerkki(2,8);
-//        PeliMerkki s = new PeliMerkki(2,8);
-//        assertEquals(0,m.compareTo(s));
-//    }
-    
+
 }

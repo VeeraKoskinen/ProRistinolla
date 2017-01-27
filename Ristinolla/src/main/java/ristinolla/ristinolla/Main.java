@@ -4,6 +4,8 @@
  * and open the template in the editor.
  */
 package ristinolla.ristinolla;
+import java.util.*;
+import logiikka.*;
 
 /**
  *
@@ -11,11 +13,10 @@ package ristinolla.ristinolla;
  */
 public class Main {
     public static void main(String[] args) {
+        Logiikka logiikka = new Logiikka();
+        logiikka.pelaaPeli();
         
     }
-    
-    public static int k() {
-        return 1;
-    }
+
     
 }
