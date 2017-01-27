@@ -45,6 +45,8 @@ public class PelaajaTest {
     
     @Test
     public void konstruktoriAsettaaIdnOikein() {
-        
+        Pelaaja p = new Pelaaja(1);
+        assertEquals(1, p.getId());
     }
+    
 }

@@ -7,10 +7,6 @@ package logiikka;
 
 import java.util.*;
 
-/**
- *
- * @author veerakoskinen
- */
 public class Pelilauta {
 
     private char[][] pelilauta;
@@ -23,7 +19,6 @@ public class Pelilauta {
         this.pelatut = 0;
         this.pelaaja1 = new Pelaaja(1);
         this.pelaaja2 = new Pelaaja(2);
-
         for (int y = 0; y < pelilauta[1].length; y++) {
             for (int x = 0; x < pelilauta.length; x++) {
                 pelilauta[x][y] = '#';
@@ -34,7 +29,6 @@ public class Pelilauta {
     public void pelaaMerkki(PeliMerkki merkki) {
         if (merkki.getX() >= 0 && merkki.getX() < 6 && merkki.getY() >= 0 && merkki.getY() < 6) {
             if (pelilauta[merkki.getX()][merkki.getY()] != 'x' && pelilauta[merkki.getX()][merkki.getY()] != 'o') {
-
                 if (merkki.getMerkki() == 'x') {
                     pelaaja1.lisaaPelattuMerkki(merkki);
                     pelatut++;
@@ -46,7 +40,6 @@ public class Pelilauta {
                 } else {
                     System.out.println("Merkki ei kuulu peliin xD");
                 }
-
             } else {
                 System.out.println("Merkkiä ei voitu lisätä. Koordinaattissa on jo pelaajan merkki.");
             }
@@ -86,7 +79,6 @@ public class Pelilauta {
             if (pelilauta[x + i][y] != m) {
                 return false;
             }
-
         }
         return true;
     }
@@ -154,5 +146,4 @@ public class Pelilauta {
             System.out.println("");
         }
     }
-
 }

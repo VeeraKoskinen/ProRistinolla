@@ -1,1 +1,0 @@
-Checkstyle-raportti tänne

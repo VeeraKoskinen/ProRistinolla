@@ -42,7 +42,7 @@ public class PeliMerkkiTest {
     // konstruktorin testit
 
     @Test
-    public void konstruktoriAsettaaPelaajanOikein() {
+    public void konstruktoriAsettaaMerkinXKoordinaatinOikein() {
         PeliMerkki m = new PeliMerkki('x', 2, 3); 
         assertEquals(2,m.getX());
     }
@@ -54,7 +54,7 @@ public class PeliMerkkiTest {
     }
     
     @Test
-    public void konstruktoriAsettaaXkoordinaatinOikein() {
+    public void konstruktoriAsettaaYkoordinaatinOikein() {
         PeliMerkki m = new PeliMerkki('x', 2, 3);; 
         assertEquals(3,m.getY());
     }
