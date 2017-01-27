@@ -10,3 +10,5 @@ Ideana on toteuttaa eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialus
 ![Luokkakaavio](dokumentaatio/Luokkakaavio.png)
 
 Kaaviota klikkaamalla pääset alkuperäiseen kuvaan :)
+
+[tuntikirjanpito](dokumentaatio/Tuntikirjanpito.md)
