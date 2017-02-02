@@ -67,43 +67,6 @@ public class PelilautaTest {
         assertEquals(6, lauta.getPelilauta()[1].length);  // rivi 
     }
     
-    
-    // pelaaMerkki testit
-    @Test
-    public void pelaaMerkkiEiLisaaMerkkiaKunKoordinaattiOnLaudanUlkopuolella1() {
-        this.lauta = new Pelilauta();
-        lauta.pelaaMerkki(new PeliMerkki('x', 5,6));
-        assertEquals(0,lauta.getPelattujenMaara());
-    }
-    
-     @Test
-    public void pelaaMerkkiEiLisaaMerkkiaKunKoordinaattiOnLaudanUlkopuolella2() {
-        this.lauta = new Pelilauta();
-        lauta.pelaaMerkki(new PeliMerkki('x', 6,4));
-        assertEquals(0,lauta.getPelattujenMaara());
-    }
-    
-    @Test
-    public void pelaaMerkkiEiLisaaMerkkiaKunKoordinaattiOnLaudanUlkopuolella3() {
-        this.lauta = new Pelilauta();
-        lauta.pelaaMerkki(new PeliMerkki('x', -1,4));
-        assertEquals(0,lauta.getPelattujenMaara());
-    }
-    
-    @Test
-    public void pelaaMerkkiEiLisaaMerkkiaKunKoordinaattiOnLaudanUlkopuolella4() {
-        this.lauta = new Pelilauta();
-        lauta.pelaaMerkki(new PeliMerkki('x', 3,-1));
-        assertEquals(0,lauta.getPelattujenMaara());
-    }
-    
-    @Test
-    public void pelaaMerkkiEiLisaaMerkkiaKunKoordinaattiOnLaudanUlkopuolella5() {
-        this.lauta = new Pelilauta();
-        lauta.pelaaMerkki(new PeliMerkki('s', 3,4));
-        assertEquals(0,lauta.getPelattujenMaara());
-    }
-    
     // onkoViisiVaakaan testit
     
     @Test

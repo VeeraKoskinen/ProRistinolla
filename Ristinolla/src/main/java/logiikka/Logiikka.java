@@ -63,11 +63,27 @@ public class Logiikka {
     }
 
     public boolean pelaaVuoro(Pelaaja p, int x, int y) {
-        int i = lauta.getPelattujenMaara();
-        lauta.pelaaMerkki(new PeliMerkki(p.getMerkki(), x, y));
-        if (lauta.getPelattujenMaara() > i) {
-            vaihdaVuoroa();
-            return lauta.onkoViidenSuoraa(p.getMerkki());
+        return pelaaMerkki(new PeliMerkki(p.getMerkki(), x, y));
+    }
+    
+    public boolean onkoViidenSuoraa(char m) {
+        for (int y = 0; y < 6; y++) {
+            for (int x = 0; x < 6; x++) {
+                if (lauta.getPelilauta()[x][y] == m) {
+                    if (lauta.onkoViisiVaakaan(x, y)) {
+                        return true;
+                    }
+                    if (lauta.onkoViisiKaakkoon(x, y)) {
+                        return true;
+                    }
+                    if (lauta.onkoViisiPystyyn(x, y)) {
+                        return true;
+                    }
+                    if (lauta.onkoViisiLounaaseen(x, y)) {
+                        return true;
+                    }
+                }
+            }
         }
         return false;
     }
@@ -80,5 +96,32 @@ public class Logiikka {
             lauta.getPelaaja2().lopetaVuoro();
             lauta.getPelaaja1().aloitaVuoro();
         }
+    }
+    
+    public boolean pelaaMerkki(PeliMerkki merkki) {
+        if (merkki.getX() >= 0 && merkki.getX() < 6 && merkki.getY() >= 0 && merkki.getY() < 6) {
+            if (lauta.getPelilauta()[merkki.getX()][merkki.getY()] != 'x' && lauta.getPelilauta()[merkki.getX()][merkki.getY()] != 'o') {
+                if (merkki.getMerkki() == 'x') {
+                    lauta.getPelaaja1().lisaaPelattuMerkki(merkki);
+                    lauta.kasvataPelattujaMerkkejaYhdella();
+                    lauta.getPelilauta()[merkki.getX()][merkki.getY()] = merkki.getMerkki();
+                } else if (merkki.getMerkki() == 'o') {
+                    lauta.getPelaaja2().lisaaPelattuMerkki(merkki);
+                    lauta.kasvataPelattujaMerkkejaYhdella();
+                    lauta.getPelilauta()[merkki.getX()][merkki.getY()] = merkki.getMerkki();
+                } else {
+                    return false;
+                }
+            } else {
+                return false;
+            }
+        } else {
+            return false;
+        }
+        return true;
+    }
+    
+    public Pelilauta getLauta() {
+        return lauta;
     }
 }

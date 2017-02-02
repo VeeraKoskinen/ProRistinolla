@@ -10,12 +10,14 @@ public class Pelaaja {
 
     private int id;
     private boolean vuoro;
-    private int pelatut;
+    private List<PeliMerkki> pelatut; 
+    private int pelattujenMaara;
     private char merkki;
 
     public Pelaaja(int id) {
-        this.pelatut = 0;
+        this.pelattujenMaara = 0;
         this.id = id;
+        this.pelatut = new ArrayList();
         if (this.id == 1) {
             this.vuoro = true;
             this.merkki = 'x';
@@ -42,10 +44,15 @@ public class Pelaaja {
     }
 
     public void lisaaPelattuMerkki(PeliMerkki merkki) {
-        pelatut++;
+        pelatut.add(merkki);
+        pelattujenMaara++;
     }
 
     public int getPelatutMerkit() {
+        return pelattujenMaara;
+    }
+    
+    public List getPelatut() {
         return pelatut;
     }
 

@@ -26,49 +26,6 @@ public class Pelilauta {
         }
     }
 
-    public void pelaaMerkki(PeliMerkki merkki) {
-        if (merkki.getX() >= 0 && merkki.getX() < 6 && merkki.getY() >= 0 && merkki.getY() < 6) {
-            if (pelilauta[merkki.getX()][merkki.getY()] != 'x' && pelilauta[merkki.getX()][merkki.getY()] != 'o') {
-                if (merkki.getMerkki() == 'x') {
-                    pelaaja1.lisaaPelattuMerkki(merkki);
-                    pelatut++;
-                    pelilauta[merkki.getX()][merkki.getY()] = merkki.getMerkki();
-                } else if (merkki.getMerkki() == 'o') {
-                    pelaaja2.lisaaPelattuMerkki(merkki);
-                    pelatut++;
-                    pelilauta[merkki.getX()][merkki.getY()] = merkki.getMerkki();
-                } else {
-                    System.out.println("Merkki ei kuulu peliin xD");
-                }
-            } else {
-                System.out.println("Merkkiä ei voitu lisätä. Koordinaattissa on jo pelaajan merkki.");
-            }
-        } else {
-            System.out.println("Merkkiä ei voitu lisätä. Koordinaatit ylittivät pelialueen");
-        }
-    }
-
-    public boolean onkoViidenSuoraa(char m) {
-        for (int y = 0; y < 6; y++) {
-            for (int x = 0; x < 6; x++) {
-                if (pelilauta[x][y] == m) {
-                    if (onkoViisiVaakaan(x, y)) {
-                        return true;
-                    }
-                    if (onkoViisiKaakkoon(x, y)) {
-                        return true;
-                    }
-                    if (onkoViisiPystyyn(x, y)) {
-                        return true;
-                    }
-                    if (onkoViisiLounaaseen(x, y)) {
-                        return true;
-                    }
-                }
-            }
-        }
-        return false;
-    }
 
     public boolean onkoViisiVaakaan(int x, int y) {
         char m = pelilauta[x][y];
@@ -136,6 +93,10 @@ public class Pelilauta {
 
     public int getPelattujenMaara() {
         return pelatut;
+    }
+    
+    public void kasvataPelattujaMerkkejaYhdella() {
+        pelatut++;
     }
 
     public void tulostaLauta() {
