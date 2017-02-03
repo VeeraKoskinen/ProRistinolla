@@ -13,8 +13,8 @@ import logiikka.*;
  */
 public class Main {
     public static void main(String[] args) {
-        Logiikka logiikka = new Logiikka();
-        logiikka.pelaaPeli();
+        Tekstikayttoliittyma liittyma = new Tekstikayttoliittyma();
+        liittyma.pelaaPeli();
         
     }
 

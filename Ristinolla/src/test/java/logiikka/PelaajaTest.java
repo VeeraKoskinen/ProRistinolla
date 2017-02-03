@@ -45,58 +45,43 @@ public class PelaajaTest {
     
     // konstruktorin testit
     
-    @Test
-    public void konstruktoriAsettaaIdnOikein() {
-        Pelaaja p1 = new Pelaaja(1);
-        assertEquals(1, p1.getId());
-        Pelaaja p2 = new Pelaaja(2);
-        assertEquals(2, p2.getId());
-    }
     
     @Test
     public void konstruktoriAsettaaPelattujenMaaranOikein() {
-        Pelaaja p1 = new Pelaaja(1);
-        Pelaaja p2 = new Pelaaja(2);
+        Pelaaja p1 = new Pelaaja(Merkki.RISTI);
+        Pelaaja p2 = new Pelaaja(Merkki.NOLLA);
         assertEquals(0, p1.getPelatutMerkit());
         assertEquals(0, p2.getPelatutMerkit());
         
     } 
     
     @Test
-    public void konstruktoriAsettaaPelattujenListanAlkuunTyhjaksi() {
-        Pelaaja p = new Pelaaja(1);
-        Pelaaja p2 = new Pelaaja(2);
-        assertEquals(0, p.getPelatut().size());
-        assertEquals(0, p2.getPelatut().size());
-    } 
-    
-    @Test
-    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunIdOn1() {
-        Pelaaja p = new Pelaaja(1);
-        assertEquals('x', p.getMerkki());
+    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunMerkkiOnRisti() {
+        Pelaaja p = new Pelaaja(Merkki.RISTI);
+        assertEquals('x', p.getMerkki().getMerkki());
     }
     
     @Test
-    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunIdOn2() {
-        Pelaaja p = new Pelaaja(2);
-        assertEquals('o', p.getMerkki());
+    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunMerkkiOnNolla() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        assertEquals('o', p.getMerkki().getMerkki());
     }
     
     @Test
-    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunIdOn6() {
-        Pelaaja p = new Pelaaja(6);
-        assertEquals('o', p.getMerkki());
+    public void konstruktoriAsettaaPelaajanMerkinOikeaksiKunMerkkiOnTyhja() {
+        Pelaaja p = new Pelaaja(Merkki.TYHJA);
+        assertEquals('t', p.getMerkki().getMerkki());
     }
  
     @Test
     public void konstruktoriAsettaaPelaajan1VuoronAlkuunTrue() {
-        Pelaaja p = new Pelaaja(1);
+        Pelaaja p = new Pelaaja(Merkki.RISTI);
         assertTrue(p.onkoVuoro());
     }
     
     @Test
     public void konstruktoriAsettaaPelaajan2VuoronAlkuunFalse() {
-        Pelaaja p = new Pelaaja(2);
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
         assertFalse(p.onkoVuoro());
     }
     
@@ -104,14 +89,14 @@ public class PelaajaTest {
     
     @Test
     public void aloitaVuoroMetodiAsettaaPelaajanKaksiVuoronTrue() {
-        Pelaaja p = new Pelaaja(2);
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
         p.aloitaVuoro();
         assertTrue(p.onkoVuoro());
     } 
     
     @Test
     public void aloitaVuoroMetodiAsettaaPelaajanYksiVuoronTrue() {
-        Pelaaja p = new Pelaaja(1);
+        Pelaaja p = new Pelaaja(Merkki.RISTI);
         p.aloitaVuoro();
         assertTrue(p.onkoVuoro());
     } 
@@ -120,21 +105,21 @@ public class PelaajaTest {
     
     @Test
     public void lopetaVuoroMetodiAsettaaPelaajanYksiVuoronFalse() {
-        Pelaaja p = new Pelaaja(1);
+        Pelaaja p = new Pelaaja(Merkki.RISTI);
         p.lopetaVuoro();
         assertFalse(p.onkoVuoro());
     } 
     
     @Test
     public void lopetaVuoroMetodiAsettaaPelaajanKaksiVuoronFalse1() {
-        Pelaaja p = new Pelaaja(2);
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
         p.lopetaVuoro();
         assertFalse(p.onkoVuoro());
     } 
     
     @Test
     public void lopetaVuoroMetodiAsettaaPelaajanKaksiVuoronFalse2() {
-        Pelaaja p = new Pelaaja(2);
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
         p.aloitaVuoro();
         p.lopetaVuoro();
         assertFalse(p.onkoVuoro());
@@ -144,15 +129,34 @@ public class PelaajaTest {
     
     @Test
     public void toStringPalauttaaPelaajan1TiedotOikein() {
-        Pelaaja p = new Pelaaja(2);
-        assertEquals("Pelaaja 2", p.toString());
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        assertEquals("Pelaaja o", p.toString());
     }
     
-
+    
+    // pelattujenMerkkienMaara testit
     
     
+    @Test
+    public void MaaraOnOikeaKunmerkkejaonPelattu0() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        assertEquals(0, p.getPelatutMerkit());
+    }
     
+    @Test
+    public void MaaraOnOikeaKunMerkkejaOnPelattu1() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 3));
+        assertEquals(1, p.getPelatutMerkit());
+    }
     
-    
-    
+    @Test
+    public void MaaraOnOikeaKunMerkkejaOnPelattu4() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 3));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 5, 3));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 1, 3));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 0, 3));
+        assertEquals(4, p.getPelatutMerkit());
+    }
 }

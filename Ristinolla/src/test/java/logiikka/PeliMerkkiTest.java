@@ -19,7 +19,7 @@ import static org.junit.Assert.*;
  */
 public class PeliMerkkiTest {
     
-    public PeliMerkkiTest() {
+    public PeliMerkkiTest() {       
     }
     
     @BeforeClass
@@ -43,19 +43,19 @@ public class PeliMerkkiTest {
 
     @Test
     public void konstruktoriAsettaaMerkinXKoordinaatinOikein() {
-        PeliMerkki m = new PeliMerkki('x', 2, 3); 
+        PeliMerkki m = new PeliMerkki(Merkki.RISTI, 2, 3); 
         assertEquals(2,m.getX());
     }
     
     @Test 
     public void konstruktoriAsettaaMerkinOikein() {
-        PeliMerkki m = new PeliMerkki('x', 2, 3);
-        assertEquals('x',m.getMerkki());
+        PeliMerkki m = new PeliMerkki(Merkki.RISTI, 2, 3);
+        assertEquals('x',m.getMerkki().getMerkki());
     }
     
     @Test
     public void konstruktoriAsettaaYkoordinaatinOikein() {
-        PeliMerkki m = new PeliMerkki('x', 2, 3);; 
+        PeliMerkki m = new PeliMerkki(Merkki.NOLLA, 2, 3);; 
         assertEquals(3,m.getY());
     }
 

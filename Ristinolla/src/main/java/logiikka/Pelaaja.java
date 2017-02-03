@@ -4,31 +4,24 @@
  * and open the template in the editor.
  */
 package logiikka;
+
 import java.util.*;
 
 public class Pelaaja {
 
-    private int id;
     private boolean vuoro;
-    private List<PeliMerkki> pelatut; 
     private int pelattujenMaara;
-    private char merkki;
+    private Merkki merkki;
 
-    public Pelaaja(int id) {
+    public Pelaaja(Merkki m) {
         this.pelattujenMaara = 0;
-        this.id = id;
-        this.pelatut = new ArrayList();
-        if (this.id == 1) {
+        this.merkki = m;
+        if (m == Merkki.RISTI) {
             this.vuoro = true;
-            this.merkki = 'x';
         } else {
             this.vuoro = false;
-            this.merkki = 'o';
         }
-    }
 
-    public int getId() {
-        return id;
     }
 
     public boolean onkoVuoro() {
@@ -44,23 +37,18 @@ public class Pelaaja {
     }
 
     public void lisaaPelattuMerkki(PeliMerkki merkki) {
-        pelatut.add(merkki);
         pelattujenMaara++;
     }
 
     public int getPelatutMerkit() {
         return pelattujenMaara;
     }
-    
-    public List getPelatut() {
-        return pelatut;
-    }
 
     public String toString() {
-        return "Pelaaja " + id;
+        return "Pelaaja " + merkki;
     }
 
-    public char getMerkki() {
+    public Merkki getMerkki() {
         return merkki;
     }
 }

@@ -6,3 +6,6 @@ Päivä | Tunnit | Kuvaus
 25.01.2017 | 2.0h | Luokkakaavion suunnittelua ja koodauksen aloitus
 26.01.2017 | 3.0h | Testien koodausta, tekstikäyttöliittymä -versio perus ristinollasta
 27.01.2017 | 5.0h | Kaiken viikolla tehdyn puskeminen repoon ja korjauksia ohjelmaan (enemmän luokkakaavion mukaiseksi)
+01.02.2017 | 2.0h | Palautteen mukaan korjailua luokkien metodien jakoon
+02.02.2017 | 3.0h | Korjauksien jatkamista ja pugin korjausta sekä testien tekoa
+03.02.2017 | 7.0h | Testien tekoa, tekstikayttoliittyman siirto oikeaan paikkaa, dokumentaatiot suunnilleen viikon palautuksien mukaisiksi ja hieman uutta koodia itse ohjelmaan.

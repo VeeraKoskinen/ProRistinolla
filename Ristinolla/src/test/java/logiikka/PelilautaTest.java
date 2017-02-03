@@ -17,7 +17,7 @@ import static org.junit.Assert.*;
  * @author veerakoskinen
  */
 public class PelilautaTest {
-    
+
     private Pelilauta lauta;
 
     public PelilautaTest() {
@@ -38,7 +38,7 @@ public class PelilautaTest {
 
     @After
     public void tearDown() {
-        
+
     }
 
     // TODO add test methods here.
@@ -46,16 +46,6 @@ public class PelilautaTest {
     //
     // @Test
     // public void hello() {}
-    @Test
-    public void KonstruktoriAsettaaPelaajan1Oikein() {
-        assertEquals(1, lauta.getPelaaja1().getId());
-    }
-
-    @Test
-    public void KonstruktoriAsettaaPelaajan2Oikein() {
-        assertEquals(2, lauta.getPelaaja2().getId());
-    }
-
     @Test
     public void KonstruktoriAsettaaPelattujenMerkkienMaaranOikein() {
         assertEquals(0, lauta.getPelattujenMaara());
@@ -66,172 +56,218 @@ public class PelilautaTest {
         assertEquals(6, lauta.getPelilauta().length);  // sarake
         assertEquals(6, lauta.getPelilauta()[1].length);  // rivi 
     }
-    
+
     // onkoViisiVaakaan testit
-    
     @Test
     public void onkoViisiVaakaan1() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[1][1] = 'x';
+        lauta.getPelilauta()[1][1] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiVaakaan(1, 1));
     }
-    
+
     @Test
     public void onkoViisiVaakaan2() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][2] = 'o';
-        lauta.getPelilauta()[1][2] = 'o';
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[4][2] = 'x';
-        assertFalse(lauta.onkoViisiVaakaan(0, 2));
+        lauta.getPelilauta()[0][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
+        assertTrue(lauta.onkoViisiVaakaan(0, 2));
     }
-    
+
     @Test
     public void onkoViisiVaakaan3() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][2] = 'o';
-        lauta.getPelilauta()[1][2] = 'o';
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[4][2] = 'o';
+        lauta.getPelilauta()[0][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
         assertTrue(lauta.onkoViisiVaakaan(0, 2));
     }
-    
-     @Test
+
+    @Test
     public void onkoViisiVaakaan4() {
-        this.lauta = new Pelilauta();      
-        lauta.getPelilauta()[1][2] = 'o';
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[4][2] = 'o';
+        this.lauta = new Pelilauta();
+        lauta.getPelilauta()[1][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
         assertFalse(lauta.onkoViisiVaakaan(1, 2));
     }
     
+    @Test
+    public void onkoViisiVaakaan5() {
+        this.lauta = new Pelilauta();
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][2] = Merkki.NOLLA;
+        assertFalse(lauta.onkoViisiVaakaan(2, 2));
+    }
     
+    @Test
+    public void onkoViisiVaakaan6() {
+        this.lauta = new Pelilauta();
+        lauta.getPelilauta()[2][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][5] = Merkki.NOLLA;
+        assertFalse(lauta.onkoViisiVaakaan(2, 5));
+    }
+    
+    
+
     // onkoViisiKaakkoon testit
-    
     @Test
     public void onkoViisiKaakkoon1() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[1][1] = 'x';
+        lauta.getPelilauta()[1][1] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiKaakkoon(1, 1));
     }
-    
+
     @Test
     public void onkoViisiKaakkoon2() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][0] = 'o';
-        lauta.getPelilauta()[1][1] = 'o';
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][3] = 'o';
-        lauta.getPelilauta()[4][4] = 'x';
+        lauta.getPelilauta()[0][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][4] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiKaakkoon(0, 0));
     }
-    
+
     @Test
     public void onkoViisiKaakkoon3() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][0] = 'o';
-        lauta.getPelilauta()[1][1] = 'o';
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][3] = 'o';
-        lauta.getPelilauta()[4][4] = 'o';
+        lauta.getPelilauta()[0][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][4] = Merkki.NOLLA;
         assertTrue(lauta.onkoViisiKaakkoon(0, 0));
     }
-    
+
     @Test
     public void onkoViisiKaakkoon4() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[2][2] = 'o';
-        lauta.getPelilauta()[3][3] = 'o';
-        lauta.getPelilauta()[4][4] = 'o';
-        lauta.getPelilauta()[5][5] = 'o';
-        assertFalse(lauta.onkoViisiKaakkoon(0, 0));
+        lauta.getPelilauta()[2][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][5] = Merkki.NOLLA;
+        assertFalse(lauta.onkoViisiKaakkoon(2, 2));
     }
     
-    
+    @Test
+    public void onkoViisiKaakkoon5() {
+        this.lauta = new Pelilauta();
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][5] = Merkki.NOLLA;
+        assertFalse(lauta.onkoViisiKaakkoon(2, 3));
+    }
+
     // onkoViisiPystyyn testit
-    
-  @Test
+    @Test
     public void onkoViisiPystyyn1() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[5][5] = 'x';
+        lauta.getPelilauta()[5][5] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiPystyyn(5, 5));
     }
-    
+
     @Test
     public void onkoViisiPystyyn2() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][0] = 'o';
-        lauta.getPelilauta()[0][1] = 'o';
-        lauta.getPelilauta()[0][2] = 'o';
-        lauta.getPelilauta()[0][3] = 'o';
-        lauta.getPelilauta()[0][4] = 'x';
+        lauta.getPelilauta()[0][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][4] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiPystyyn(0, 0));
     }
-    
+
     @Test
     public void onkoViisiPystyyn3() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][0] = 'o';
-        lauta.getPelilauta()[0][1] = 'o';
-        lauta.getPelilauta()[0][2] = 'o';
-        lauta.getPelilauta()[0][3] = 'o';
-        lauta.getPelilauta()[0][4] = 'o';
+        lauta.getPelilauta()[0][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][4] = Merkki.NOLLA;
         assertTrue(lauta.onkoViisiPystyyn(0, 0));
     }
-    
+
     @Test
     public void onkoViisiPystyyn4() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[0][2] = 'o';
-        lauta.getPelilauta()[0][3] = 'o';
-        lauta.getPelilauta()[0][4] = 'o';
-        lauta.getPelilauta()[0][5] = 'o';
+        lauta.getPelilauta()[0][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][5] = Merkki.NOLLA;
         assertFalse(lauta.onkoViisiPystyyn(0, 2));
     }
-      
-    // onkoViisiLounaaseen testit
 
+    // onkoViisiLounaaseen testit
     @Test
     public void onkoViisiLounaaseen1() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[1][1] = 'x';
+        lauta.getPelilauta()[1][1] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiLounaaseen(1, 1));
     }
-    
+
     @Test
     public void onkoViisiLounaaseen2() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[5][0] = 'o';
-        lauta.getPelilauta()[4][1] = 'o';
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[2][3] = 'o';
-        lauta.getPelilauta()[1][4] = 'x';
+        lauta.getPelilauta()[5][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][4] = Merkki.RISTI;
         assertFalse(lauta.onkoViisiLounaaseen(5, 0));
     }
-    
+
     @Test
     public void onkoViisiLounaaseen3() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[5][0] = 'o';
-        lauta.getPelilauta()[4][1] = 'o';
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[2][3] = 'o';
-        lauta.getPelilauta()[1][4] = 'o';
+        lauta.getPelilauta()[5][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][4] = Merkki.NOLLA;
         assertTrue(lauta.onkoViisiLounaaseen(5, 0));
     }
-    
+
     @Test
     public void onkoViisiLounaaseen4() {
         this.lauta = new Pelilauta();
-        lauta.getPelilauta()[3][2] = 'o';
-        lauta.getPelilauta()[2][3] = 'o';
-        lauta.getPelilauta()[1][4] = 'o';
-        lauta.getPelilauta()[0][5] = 'o';
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][5] = Merkki.NOLLA;
         assertFalse(lauta.onkoViisiLounaaseen(3, 2));
     }
+
+    // voiko merkin lisata laudalle
+    @Test
+    public void voikoMerkinLisataLaudallePalauttaaTrueKunMerkinKoordinaatitOvatValilla0Ja5() {
+        assertTrue(lauta.voikoMerkinLisataKoordinaattiin(0, 0));
+        assertTrue(lauta.voikoMerkinLisataKoordinaattiin(5, 0));
+        assertTrue(lauta.voikoMerkinLisataKoordinaattiin(0, 5));
+        assertTrue(lauta.voikoMerkinLisataKoordinaattiin(5, 5));
+        assertTrue(lauta.voikoMerkinLisataKoordinaattiin(3, 4));
+    }
+
+    @Test
+    public void voikoMerkinLisataLaudallePalauttaaFalseKunMerkinKoordinaatitEivatOleValilla0Ja5() {
+        assertFalse(lauta.voikoMerkinLisataKoordinaattiin(-1, 0));
+        assertFalse(lauta.voikoMerkinLisataKoordinaattiin(5, -1));
+        assertFalse(lauta.voikoMerkinLisataKoordinaattiin(6, 0));
+        assertFalse(lauta.voikoMerkinLisataKoordinaattiin(-1, 7));
+        assertFalse(lauta.voikoMerkinLisataKoordinaattiin(8, 6));        
+    }
+    
+    // tulosta lauta testit (ei testejä, koska väliaikaisessa käytössä)
     
     
 }

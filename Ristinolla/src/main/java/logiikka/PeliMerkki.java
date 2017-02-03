@@ -7,17 +7,17 @@ package logiikka;
 
 public class PeliMerkki {
 
-    private char merkki;
+    private Merkki merkki;
     private int x;
     private int y;
 
-    public PeliMerkki(char merkki, int koordinaattiX, int koordinaattiY) {
+    public PeliMerkki(Merkki merkki, int koordinaattiX, int koordinaattiY) {
         this.merkki = merkki;
         this.x = koordinaattiX;
         this.y = koordinaattiY;
     }
 
-    public char getMerkki() {
+    public Merkki getMerkki() {
         return merkki;
     }
 
