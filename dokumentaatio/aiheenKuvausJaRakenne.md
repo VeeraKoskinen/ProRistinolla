@@ -10,21 +10,21 @@ Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toi
 
 ##PELAAJAN TOIMINNOT:
 
-Pelin luovuttaminen
+- Pelin luovuttaminen
 
  - onnistuu vain jos meneillään on pelaajan oma vuoro
 
-Pelaajan merkin asettaminen (vaihe 1)
+- Pelaajan merkin asettaminen (vaihe 1)
 
-Pelilaudan osan pyörittäminen (vaihe 2)
+- Pelilaudan osan pyörittäminen (vaihe 2)
 
  - onnistuu vain jos pelaaja on asettanut jo merkin vuorollaan
 
-Vuoron päättäminen
+- Vuoron päättäminen
 
  - onnistuu vain jos vuoron vaiheet on suoritettu
 
-Pelin lopettaminen
+- Pelin lopettaminen
 
  - onnistuu, jos vastapelaaja on luovuttanut
 
@@ -33,12 +33,12 @@ Pelin lopettaminen
 
 ##KAIKKIEN KÄYTTÄJIEN TOIMINNOT:
 
-Pelin käynnistäminen
+- Pelin käynnistäminen
 
-Uuden pelin aloittaminen
+- Uuden pelin aloittaminen
 
  - onnistuu vain, jos edellinen peli on lopetettu
 
 
 ###LUOKKAKAAVIO
-![Luokkakaavio](dokumentaatio/Luokkakaavio.png)
+![Luokkakaavio](Luokkakaavio.png)
