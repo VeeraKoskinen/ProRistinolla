@@ -9,24 +9,24 @@ package logiikka;
  *
  * @author veerakoskinen
  */
-public enum Merkki{
-    RISTI ('x'),
-    NOLLA ('o'),
-    TYHJA ('t');
-    
+public enum Merkki {
+
+    RISTI('x'),
+    NOLLA('o'),
+    TYHJA('t');
+
     private char merkki;
-    
+
     Merkki(char merkki) {
         this.merkki = merkki;
     }
-    
+
     public char getMerkki() {
         return merkki;
     }
-    
+
     public String toString() {
         return "" + merkki + "";
     }
 
-
-}  
+}

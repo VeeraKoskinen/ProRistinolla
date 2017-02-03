@@ -17,7 +17,6 @@ public class Logiikka {
 
     public Logiikka() {
         this.lauta = new Pelilauta();
-
     }
 
     public boolean pelaaVuoro(Pelaaja p, int x, int y) {

@@ -13,14 +13,15 @@ import logiikka.*;
  * @author veerakoskinen
  */
 public class Tekstikayttoliittyma {
+
     private Logiikka l;
     private Scanner lukija;
-    
+
     public Tekstikayttoliittyma() {
         l = new Logiikka();
         this.lukija = new Scanner(System.in);
     }
-    
+
     public void pelaaPeli() {
         System.out.println("Ohje:");
         System.out.println("Koordinaatteja voi antaa väliltä 0-5. Ensimmäisenä viisi vaakaan/pystyyn/vinottain saanut voittaa.");
@@ -29,17 +30,14 @@ public class Tekstikayttoliittyma {
         while (voitto == false) {
             if (l.getLauta().getPelaaja1().onkoVuoro()) {
                 l.getLauta().tulostaLauta();
-                System.out.println("");
-                // kyselyt
+                System.out.println(""); // kyselyt
                 System.out.println("Anna x-koordinaatti:");
                 int x = Integer.parseInt(lukija.nextLine());
                 System.out.println("Anna y-koordinaatti:");
                 int y = Integer.parseInt(lukija.nextLine());
-                
                 if (l.pelaaVuoro(l.getLauta().getPelaaja1(), x, y)) {
                     voitto = l.onkoViidenSuoraa(l.getLauta().getPelaaja1().getMerkki());
                 }
-                
             } else {
                 l.getLauta().tulostaLauta();
                 System.out.println("");
@@ -68,5 +66,4 @@ public class Tekstikayttoliittyma {
             System.out.println("Pelaaja1 voitti (x)");
         }
     }
-    
 }
