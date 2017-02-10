@@ -267,7 +267,18 @@ public class PelilautaTest {
         assertFalse(lauta.voikoMerkinLisataKoordinaattiin(8, 6));        
     }
     
-    // tulosta lauta testit (ei testejä, koska väliaikaisessa käytössä)
+    // alustaLaudanKoordinaatitTyhjiksi testit
     
-    
+    @Test
+    public void alustaLautaAsettaaTaulukonPaikan0_0Tyhjaksi() {
+        lauta.getPelilauta()[0][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][1] = Merkki.RISTI;
+        lauta.getPelilauta()[3][1] = Merkki.NOLLA;
+        lauta.alustaLaudanKoordinaatitTyhjiksi();
+        assertEquals(Merkki.TYHJA, lauta.getPelilauta()[0][0]);
+        assertEquals(Merkki.TYHJA, lauta.getPelilauta()[3][2]);
+        assertEquals(Merkki.TYHJA, lauta.getPelilauta()[5][1]);
+        assertEquals(Merkki.TYHJA, lauta.getPelilauta()[3][1]);
+    }
 }

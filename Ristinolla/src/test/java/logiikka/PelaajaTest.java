@@ -159,4 +159,35 @@ public class PelaajaTest {
         p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 0, 3));
         assertEquals(4, p.getPelatutMerkit());
     }
+    
+    // pelattujen maaran nollaus
+    
+    @Test
+    public void nollaaPelatutMerkitMuuttaaMerkkienMaaraaOikein1() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 3));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 4));
+        p.nollaaPelatutMerkit();
+        assertEquals(0, p.getPelatutMerkit());
+    }
+    
+    @Test
+    public void nollaaPelatutMerkitMuuttaaMerkkienMaaraaOikein2() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        p.nollaaPelatutMerkit();
+        assertEquals(0, p.getPelatutMerkit());
+    }
+    
+     @Test
+    public void nollaaPelatutMerkitMuuttaaMerkkienMaaraaOikein3() {
+        Pelaaja p = new Pelaaja(Merkki.NOLLA);
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 3));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 1, 4));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 2, 5));
+        p.lisaaPelattuMerkki(new PeliMerkki(Merkki.NOLLA, 3, 4));
+        p.nollaaPelatutMerkit();
+        assertEquals(0, p.getPelatutMerkit());
+    }
+    
+    
 }

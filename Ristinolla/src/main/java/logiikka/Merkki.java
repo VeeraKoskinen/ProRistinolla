@@ -9,6 +9,10 @@ package logiikka;
  *
  * @author veerakoskinen
  */
+
+/**
+ * Pelilaudalla ilmentyvät merkit.
+ */
 public enum Merkki {
 
     RISTI('x'),

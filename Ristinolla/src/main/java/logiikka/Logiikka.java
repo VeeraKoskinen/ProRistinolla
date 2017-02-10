@@ -5,13 +5,18 @@
  */
 package logiikka;
 
-import java.util.Scanner;
+import java.awt.event.*;
+import java.util.*;
 
 /**
  *
  * @author veerakoskinen
  */
+/**
+ * Luokka kerää yhteen metodit joilla saadaan ohjailtua koko peliä.
+ */
 public class Logiikka {
+    // action performed tekemättä ja timer asettamatta ??
 
     private Pelilauta lauta;
 
@@ -19,6 +24,15 @@ public class Logiikka {
         this.lauta = new Pelilauta();
     }
 
+    /**
+     * Metodi suorittaa yhden vuoron olennaiset toiminnot: Merkin pelaamisen ja
+     * vuoron vaihtamisen.
+     *
+     * @param p vuorossa oleva pelaaja
+     * @param x tarjottu x-koordinaatti
+     * @param y tarjottu y-koordinaatti
+     * @return true jos merkki saatiin pelattua ja false jos ei.
+     */
     public boolean pelaaVuoro(Pelaaja p, int x, int y) {
         if (pelaaMerkki(new PeliMerkki(p.getMerkki(), x, y))) {
             vaihdaVuoroa();
@@ -27,6 +41,13 @@ public class Logiikka {
         return false;
     }
 
+    /**
+     * Metodi kertoo onko koko laudalle syntynyt johonkin suuntaan viiden saman
+     * merkin riviä.
+     *
+     * @param m merkki jonka riviä etsitään
+     * @return true jos rivi löytyy ja false jos riviä ei synny.
+     */
     public boolean onkoViidenSuoraa(Merkki m) {
         for (int y = 0; y < 6; y++) {
             for (int x = 0; x < 6; x++) {
@@ -49,6 +70,9 @@ public class Logiikka {
         return false;
     }
 
+    /**
+     * Metodi vaihtaa pelaajien vuorot eli vuoro-muuttujan arvot keskenään.
+     */
     public void vaihdaVuoroa() {
         if (lauta.getPelaaja1().onkoVuoro()) {
             lauta.getPelaaja1().lopetaVuoro();
@@ -59,6 +83,13 @@ public class Logiikka {
         }
     }
 
+    /**
+     * Metodi kertoo voidaanko merkki lisata kyseessä olevaan koordinaattiin.
+     * Jos voidaan, niin merkki lisätään.
+     *
+     * @return true jos merkki voitiin lisätä laudalle. Jos ei, niin palautetaan
+     * false.
+     */
     public boolean pelaaMerkki(PeliMerkki merkki) {
         if (lauta.voikoMerkinLisataKoordinaattiin(merkki.getX(), merkki.getY())) {
             if (merkki.getMerkki() == Merkki.RISTI) {
@@ -78,7 +109,57 @@ public class Logiikka {
         return true;
     }
 
+    /**
+     * Metodi palauttaa pelaajan jonka vuoro-arvo on true, eli pelaajan joka on
+     * juuri vuorossa.
+     *
+     * @return vuorossa oleva pelaaja
+     */
+    public Pelaaja kummanVuoro() {
+        if (lauta.getPelaaja1().onkoVuoro()) {
+            return lauta.getPelaaja1();
+        } else {
+            return lauta.getPelaaja2();
+        }
+    }
+
+    /**
+     * Metodi on vain laudan koordinaatiston get -metodi.
+     *
+     * @return laudan koordinaatisto
+     */
     public Pelilauta getLauta() {
         return lauta;
     }
+
+    /**
+     * Metodi kertoo jos tilanne on tasan.
+     *
+     * @return true jos kyseessä on tasapeli ja false jos peli ei ole tasan
+     */
+    public boolean onkoTasapeli() {
+        if (lauta.getPelattujenMaara() == 36) {
+            return true;
+        }
+        return false;
+    }
+    /**
+     * Metodi alustaa pelin alkutilaan.
+     * @return palautetaan true jos rivi löytyy ja false jos riviä ei synny.
+     */
+    public void alustaPeliUudelleen() {
+        for (int y = 0; y < lauta.getPelilauta()[1].length; y++) {
+            for (int x = 0; x < lauta.getPelilauta().length; x++) {
+                lauta.getPelilauta()[x][y] = Merkki.TYHJA;
+            }
+        }
+        lauta.getPelaaja1().nollaaPelatutMerkit();
+        lauta.getPelaaja1().aloitaVuoro();
+        lauta.getPelaaja2().nollaaPelatutMerkit();
+        lauta.getPelaaja2().lopetaVuoro();
+        lauta.setpelattujenMaara(0);
+        
+
+    }
+
 }
