@@ -67,10 +67,7 @@ public class Pelaaja {
     public String toString() {
         return "Pelaaja " + merkki;
     }
-    /**
-     * Metodi palauttaa pelaajan merkin.
-     * @return merkki X tai Y
-     */
+
     public Merkki getMerkki() {
         return merkki;
     }

@@ -102,31 +102,19 @@ public class Pelilauta {
         }
         return false;
     }
-    /**
-     * Metodi palauttaa pelaajan 1.
-     * @return pelaaja risti
-     */
+
     public Pelaaja getPelaaja1() {
         return pelaaja1;
     }
-    /**
-     * Metodi palauttaa pelaajan 2.
-     * @return pelaaja nolla
-     */
+
     public Pelaaja getPelaaja2() {
         return pelaaja2;
     }
-    /**
-     * Metodi palauttaa pelilaudansolujen sisällön.
-     * @return Palauttaa taulukkomuotoisena pelilaudan.
-     */
+
     public Merkki[][] getPelilauta() {
         return pelilauta;
     }
-    /**
-     * Metodi palauttaa jo pelattujen merkkien kokonaismäärän.
-     * @return Jo pelattujen merkkien määrä.
-     */
+ 
     public int getPelattujenMaara() {
         return pelatut;
     }

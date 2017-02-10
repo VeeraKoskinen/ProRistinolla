@@ -20,24 +20,14 @@ public class PeliMerkki {
         this.y = koordinaattiY;
     }
 
-    /**
-     * Palauttaa PeliMerkin merkin.
-     * @return merkin enum -arvon
-     */
     public Merkki getMerkki() {
         return merkki;
     }
-    /**
-     * Palauttaa PeliMerkin x-koordinaatin.
-     * @return x-koordinaatti
-     */
+ 
     public int getX() {
         return x;
     }
-    /**
-     * Palauttaa PeliMerkin y-koordinaatin.
-     * @return y-koordinaatti
-     */
+
     public int getY() {
         return y;
     }

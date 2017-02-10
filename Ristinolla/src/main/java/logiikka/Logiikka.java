@@ -123,22 +123,16 @@ public class Logiikka {
         }
     }
 
-    /**
-     * Metodi on vain laudan koordinaatiston get -metodi.
-     *
-     * @return laudan koordinaatisto
-     */
     public Pelilauta getLauta() {
         return lauta;
     }
-
     /**
      * Metodi kertoo jos tilanne on tasan.
      *
      * @return true jos kyseessä on tasapeli ja false jos peli ei ole tasan
      */
     public boolean onkoTasapeli() {
-        if (lauta.getPelattujenMaara() == 36) {
+        if (lauta.getPelattujenMaara() >= 36) {
             return true;
         }
         return false;
