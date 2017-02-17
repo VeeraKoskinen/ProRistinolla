@@ -11,9 +11,7 @@ Ideana on toteuttaa eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialus
 
 Kaaviota klikkaamalla pääset alkuperäiseen kuvaan :)
 
-![Sekvenssikaavio merkin pelaamisesta hyvällä syötteellä](dokumentaatio/merkinPelaaminen1.jpg)
-
-![Sekvenssikaavio merkin pelaamisesta huonolla syötteellä](dokumentaatio/merkinPelaaminen2.jpg)
+## Raportit
 
 [pit-raportti](https://htmlpreview.github.io/?https://github.com/VeeraKoskinen/ProRistinolla/blob/master/dokumentaatio/pit-raportit/201702102324/index.html)
 
