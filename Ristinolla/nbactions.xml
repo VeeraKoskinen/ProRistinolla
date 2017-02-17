@@ -12,10 +12,10 @@
         <displayName>Checkstyle</displayName>
         <goals>
             <goal>jxr:jxr</goal>
-        <goal>checkstyle:checkstyle</goal>
-    </goals>
-  </action>
-  <action>
+            <goal>checkstyle:checkstyle</goal>
+        </goals>
+    </action>
+    <action>
         <actionName>CUSTOM-Javadoc</actionName>
         <displayName>Javadoc</displayName>
         <goals>
@@ -23,3 +23,4 @@
         </goals>
     </action>
 </actions>
+

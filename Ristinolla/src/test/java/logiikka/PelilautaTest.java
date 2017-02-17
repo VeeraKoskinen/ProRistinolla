@@ -281,4 +281,244 @@ public class PelilautaTest {
         assertEquals(Merkki.TYHJA, lauta.getPelilauta()[5][1]);
         assertEquals(Merkki.TYHJA, lauta.getPelilauta()[3][1]);
     }
+    
+    // kierraVasenYlaMyotapaivaan testit
+    
+    @Test
+    public void kierraVasenYlaMyotapaivaanTesti1() {
+        lauta.getPelilauta()[0][0] = Merkki.RISTI;
+        lauta.getPelilauta()[1][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][1] = Merkki.RISTI;
+        lauta.getPelilauta()[2][0] = Merkki.NOLLA;
+        lauta.kierraVasenYlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][2]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][0]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][2]);
+    }
+    
+    @Test
+    public void kierraVasenYlaMyotapaivaanTesti2() {
+        lauta.getPelilauta()[1][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][1] = Merkki.RISTI;
+        lauta.getPelilauta()[0][2] = Merkki.RISTI;
+        lauta.getPelilauta()[2][2] = Merkki.RISTI;
+        lauta.kierraVasenYlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[1][0]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][2]);
+    }
+       
+    // kierraVasenYlaVastapaivaan testit
+    
+    @Test
+    public void kierraVasenYlaVastapaivaanTesti1() {
+        lauta.getPelilauta()[0][0] = Merkki.RISTI;
+        lauta.getPelilauta()[1][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][1] = Merkki.RISTI;
+        lauta.getPelilauta()[2][0] = Merkki.NOLLA;
+        lauta.kierraVasenYlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][2]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][1]);
+    }
+    
+    @Test
+    public void kierraVasenYlaVastapaivaanTesti2() {
+        lauta.getPelilauta()[1][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][1] = Merkki.RISTI;
+        lauta.getPelilauta()[0][2] = Merkki.RISTI;
+        lauta.getPelilauta()[2][2] = Merkki.RISTI;
+        lauta.kierraVasenYlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][1]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[1][2]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][2]);
+    }
+       
+    // kierraVasenAlaMyotapaivaan testit
+    
+    @Test
+    public void kierraVasenAlaMyotapaivaanTesti1() {
+        lauta.getPelilauta()[0][3] = Merkki.RISTI;
+        lauta.getPelilauta()[1][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][4] = Merkki.RISTI;
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.kierraVasenAlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][5]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][3]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][5]);
+    }
+    
+    @Test
+    public void kierraVasenAlaMyotapaivaanTesti2() {
+        lauta.getPelilauta()[1][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][4] = Merkki.RISTI;
+        lauta.getPelilauta()[0][5] = Merkki.RISTI;
+        lauta.getPelilauta()[2][5] = Merkki.RISTI;
+        lauta.kierraVasenAlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[1][3]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][5]);
+    }
+    
+    // kierraVasenAlaVastapaivaan testit
+    
+    @Test
+    public void kierraVasenAlaVastapaivaanTesti1() {
+        lauta.getPelilauta()[0][3] = Merkki.RISTI;
+        lauta.getPelilauta()[1][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[2][4] = Merkki.RISTI;
+        lauta.getPelilauta()[2][3] = Merkki.NOLLA;
+        lauta.kierraVasenAlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[0][5]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[2][4]);
+    }
+    
+    @Test
+    public void kierraVasenAlaVastapaivaanTesti2() {
+        lauta.getPelilauta()[1][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[0][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[1][4] = Merkki.RISTI;
+        lauta.getPelilauta()[0][5] = Merkki.RISTI;
+        lauta.getPelilauta()[2][5] = Merkki.RISTI;
+        lauta.kierraVasenAlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[0][4]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[1][5]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[1][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[2][5]);
+    }
+    
+    // kierraOikeaYlaMyotapaivaan testit
+    
+    @Test
+    public void kierraOikeaYlaMyotapaivaanTesti1() {
+        lauta.getPelilauta()[3][0] = Merkki.RISTI;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][1] = Merkki.RISTI;
+        lauta.getPelilauta()[5][0] = Merkki.NOLLA;
+        lauta.kierraOikeaYlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][2]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][0]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][2]);
+    }
+    
+    @Test
+    public void kierraOikeaYlaMyotapaivaanTesti2() {
+        lauta.getPelilauta()[4][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][1] = Merkki.RISTI;
+        lauta.getPelilauta()[3][2] = Merkki.RISTI;
+        lauta.getPelilauta()[5][2] = Merkki.RISTI;
+        lauta.kierraOikeaYlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[4][0]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][2]);
+    }
+    
+    // kierraOikeaYlaVastapaivaan testit
+    
+    @Test
+    public void kierraOikeaYlaVastapaivaanTesti1() {
+        lauta.getPelilauta()[3][0] = Merkki.RISTI;
+        lauta.getPelilauta()[4][2] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][1] = Merkki.RISTI;
+        lauta.getPelilauta()[5][0] = Merkki.NOLLA;
+        lauta.kierraOikeaYlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][2]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][1]);
+    }
+    
+    @Test
+    public void kierraOikeaYlaVastapaivaanTesti2() {
+        lauta.getPelilauta()[4][0] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][1] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][1] = Merkki.RISTI;
+        lauta.getPelilauta()[3][2] = Merkki.RISTI;
+        lauta.getPelilauta()[5][2] = Merkki.RISTI;
+        lauta.kierraOikeaYlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][1]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[4][2]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][0]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][1]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][2]);
+    }
+    
+    // kierraOikeaAlaMyotapaivaan testit
+    
+    @Test
+    public void kierraOikeaAlaMyotapaivaanTesti1() {
+        lauta.getPelilauta()[3][3] = Merkki.RISTI;
+        lauta.getPelilauta()[4][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][4] = Merkki.RISTI;
+        lauta.getPelilauta()[5][3] = Merkki.NOLLA;
+        lauta.kierraOikeaAlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][5]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][5]);
+    }
+    
+    @Test
+    public void kierraOikeaAlaMyotapaivaanTesti2() {
+        lauta.getPelilauta()[4][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][4] = Merkki.RISTI;
+        lauta.getPelilauta()[3][5] = Merkki.RISTI;
+        lauta.getPelilauta()[5][5] = Merkki.RISTI;
+        lauta.kierraOikeaAlaMyotapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[4][3]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][5]);
+    }
+    
+    // kierra OikeaAlaVastapaivaan testit
+    
+    @Test
+    public void kierraOikeaAlaVastapaivaanTesti1() {
+        lauta.getPelilauta()[3][3] = Merkki.RISTI;
+        lauta.getPelilauta()[4][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][4] = Merkki.RISTI;
+        lauta.getPelilauta()[5][3] = Merkki.NOLLA;
+        lauta.kierraOikeaAlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[3][5]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[5][4]);
+    }
+    
+    @Test
+    public void kierraOikeaAlaVastapaivaanTesti2() {
+        lauta.getPelilauta()[4][3] = Merkki.NOLLA;
+        lauta.getPelilauta()[3][4] = Merkki.NOLLA;
+        lauta.getPelilauta()[4][4] = Merkki.RISTI;
+        lauta.getPelilauta()[3][5] = Merkki.RISTI;
+        lauta.getPelilauta()[5][5] = Merkki.RISTI;
+        lauta.kierraOikeaAlaVastapaivaan();
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[3][4]);
+        assertEquals(Merkki.NOLLA, lauta.getPelilauta()[4][5]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][3]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[4][4]);
+        assertEquals(Merkki.RISTI, lauta.getPelilauta()[5][5]);
+    }
 }

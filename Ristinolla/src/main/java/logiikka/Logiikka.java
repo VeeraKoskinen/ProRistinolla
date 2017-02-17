@@ -139,7 +139,7 @@ public class Logiikka {
     /**
      * Metodi alustaa pelin alkutilaan.
      * 
-     * @return palautetaan true jos rivi löytyy ja false jos riviä ei synny.
+     * @return true jos rivi löytyy ja false jos riviä ei synny.
      */
     public void alustaPeliUudelleen() {
         this.lauta = new Pelilauta();    

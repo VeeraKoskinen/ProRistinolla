@@ -19,6 +19,9 @@ public class Pelilauta {
     private Pelaaja pelaaja1;
     private Pelaaja pelaaja2;
 
+    /**
+     * Konstruktorissa alustetaan pelilauta, pelattujen merkkien maara sekä pelaajat.
+     */
     public Pelilauta() {
         this.pelilauta = new Merkki[6][6];
         this.pelatut = 0;
@@ -174,9 +177,12 @@ public class Pelilauta {
                 pelilauta[x][y] = Merkki.TYHJA;
             }
         }
-    }
-
-    public void kierraOikeaYlaMyotapaivaan() {
+    }   
+    
+    /**
+     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä myötäpäivään.
+     */
+    public void kierraVasenYlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
@@ -197,7 +203,10 @@ public class Pelilauta {
 
     }
 
-    public void kierraOikeaYlaVastapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä vastapäivään.
+     */
+    public void kierraVasenYlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 0; x < 3; x++) {
@@ -217,7 +226,10 @@ public class Pelilauta {
         pelilauta[2][2] = apu[0][2];
     }
 
-    public void kierraOikeaAlaMyotapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä myötäpäivään.
+     */
+    public void kierraVasenAlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 0; x < 3; x++) {
@@ -237,7 +249,10 @@ public class Pelilauta {
         pelilauta[2][5] = apu[2][0];
     }
 
-    public void kierraOikeaAlaVastapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä vastapäivään.
+     */
+    public void kierraVasenAlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 0; x < 3; x++) {
@@ -257,7 +272,10 @@ public class Pelilauta {
         pelilauta[2][5] = apu[0][2];
     }
 
-    public void kierraVasenYlaMyotapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä myötäpäivään.
+     */
+    public void kierraOikeaYlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 3; x < 6; x++) {
@@ -277,7 +295,10 @@ public class Pelilauta {
         pelilauta[5][2] = apu[2][0];
     }
 
-    public void kierraVasenYlaVastapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä vastapäivään.
+     */
+    public void kierraOikeaYlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 3; x < 6; x++) {
@@ -297,7 +318,10 @@ public class Pelilauta {
         pelilauta[5][2] = apu[0][2];
     }
 
-    public void kierraVasenAlaMyotapaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä myötäpäivään.
+     */
+    public void kierraOikeaAlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 3; x < 6; x++) {
@@ -317,7 +341,10 @@ public class Pelilauta {
         pelilauta[5][5] = apu[2][0];
     }
 
-    public void kierraVasenAlaVastaPaivaan() {
+    /**
+     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä vastapäivään.
+     */
+    public void kierraOikeaAlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 3; x < 6; x++) {

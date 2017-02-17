@@ -220,23 +220,73 @@ public class LogiikkaTest {
         assertTrue(logiikka.onkoViidenSuoraa(Merkki.RISTI));
     }
 
-    // pelin uudelleen alustuksen testit
-    // kumman vuoro testit
-//    @Test
-//    public void kummanVuoroPalauttaaOikeinKunPelaajienVuorotOvatVaihtuneetKerran() {
-//        this.logiikka = new Logiikka(); 
-//        logiikka.vaihdaVuoroa();
-//        Merkki merkki = Merkki.NOLLA;
-//        Merkki verrattava = logiikka.kummanVuoro().getMerkki();
-//        assertEguals(merkki, verrattava);    
-//    }
     // onko tasapeli testit
-//    @Test
-//    public void onkoTasapeliPalauttaaTrueJosNappuloitaOnPelattu36() {
-//        this.logiikka = new Logiikka();
-//            for (int i = 1; i < 36; i++) {
-//                logiikka.getLauta().kasvataPelattujaMerkkejaYhdella();
-//            }  
-//        assertTrue(logiikka.onkoTasapeli());
-//    }
+    @Test
+    public void onkoTasapeliPalauttaaFalseKunMerkkejaOnPelattu2() {
+        this.logiikka = new Logiikka();
+        logiikka.pelaaMerkki(new PeliMerkki(Merkki.RISTI, 2, 3));
+        logiikka.pelaaMerkki(new PeliMerkki(Merkki.NOLLA, 1, 3));
+        assertFalse(logiikka.onkoTasapeli());
+    }
+
+    @Test
+    public void onkoTasapeliPalauttaaFalseKunMerkkejaOnPelattu35() {
+        this.logiikka = new Logiikka();
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (i == 5 && j == 5) {
+                    continue;
+                } else {
+                    logiikka.pelaaMerkki(new PeliMerkki(Merkki.RISTI, j, i));
+                }
+            }
+        }
+        assertFalse(logiikka.onkoTasapeli());
+    }
+
+    @Test
+    public void onkoTasapeliPalauttaaTrueKunMerkkejaOnPelattu36() {
+        this.logiikka = new Logiikka();
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                logiikka.pelaaMerkki(new PeliMerkki(Merkki.RISTI, j, i));
+            }
+        }
+        assertTrue(logiikka.onkoTasapeli());
+    }
+    
+    // kummanVuoro testit
+    
+    @Test
+    public void kummanVuoroPalauttaaPelaajan1KunPeliAlkaa() {
+        this.logiikka = new Logiikka();
+        assertEquals(Merkki.RISTI,logiikka.kummanVuoro().getMerkki());
+    }
+    
+    @Test
+    public void kummanVuoroPalauttaaPelaajan2KunOnPelattuYksiVuoro() {
+        this.logiikka = new Logiikka();
+        logiikka.vaihdaVuoroa();
+        assertEquals(Merkki.NOLLA,logiikka.kummanVuoro().getMerkki());
+    }
+    
+    @Test
+    public void kummanVuoroPalauttaaPelaajan2KunOnPelattu10Vuoroa() {
+        this.logiikka = new Logiikka();
+        for (int i = 0; i < 9; i++) {
+            logiikka.vaihdaVuoroa();
+        }
+        assertEquals(Merkki.NOLLA,logiikka.kummanVuoro().getMerkki());
+    }
+    
+    // pelin uudelleen alustuksen testi
+    @Test
+    public void alustaUudelleenAustaaPelilaudanAlkutilaan() {
+        this.logiikka = new Logiikka();
+        assertEquals(0, logiikka.getLauta().getPelattujenMaara());
+        assertTrue(logiikka.getLauta().getPelaaja1().onkoVuoro());
+        assertFalse(logiikka.getLauta().getPelaaja2().onkoVuoro());
+    }
+
+    //
 }
