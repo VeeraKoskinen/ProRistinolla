@@ -14,6 +14,14 @@ public class PeliMerkki {
     private int x;
     private int y;
 
+    /**
+     * Konstruktorissa asetetaan pelimerkille koordinaatit sekä sen "tunnustama"
+     * merkki.
+     *
+     * @param merkki
+     * @param koordinaattiX määrää x-koordinaatin
+     * @param koordinaattiY määrää y-koordinaatin
+     */
     public PeliMerkki(Merkki merkki, int koordinaattiX, int koordinaattiY) {
         this.merkki = merkki;
         this.x = koordinaattiX;
@@ -23,7 +31,7 @@ public class PeliMerkki {
     public Merkki getMerkki() {
         return merkki;
     }
- 
+
     public int getX() {
         return x;
     }

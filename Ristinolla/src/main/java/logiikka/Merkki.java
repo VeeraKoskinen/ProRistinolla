@@ -9,7 +9,6 @@ package logiikka;
  *
  * @author veerakoskinen
  */
-
 /**
  * Pelilaudalla ilmentyvät merkit.
  */
@@ -19,8 +18,13 @@ public enum Merkki {
     NOLLA('o'),
     TYHJA('t');
 
-    private char merkki;
-
+    private final char merkki;
+    
+    /**
+    * Konstruktorissa asetetaan merkeille omat char arvot, jotka helpottavat testien tulkintaa.
+    * 
+    * @param merkki 
+    */    
     Merkki(char merkki) {
         this.merkki = merkki;
     }
@@ -29,6 +33,7 @@ public enum Merkki {
         return merkki;
     }
 
+    @Override
     public String toString() {
         return "" + merkki + "";
     }

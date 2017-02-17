@@ -20,7 +20,8 @@ public class Pelilauta {
     private Pelaaja pelaaja2;
 
     /**
-     * Konstruktorissa alustetaan pelilauta, pelattujen merkkien maara sekä pelaajat.
+     * Konstruktorissa alustetaan pelilauta, pelattujen merkkien maara sekä
+     * pelaajat.
      */
     public Pelilauta() {
         this.pelilauta = new Merkki[6][6];
@@ -35,6 +36,8 @@ public class Pelilauta {
      * Metodi kertoo onko laudalle syntynyt vaakasuunnassa viiden saman merkin
      * riviä.
      *
+     * @param x lähtien tästä x-koordinaatista
+     * @param y lähtien tästä y-koordinaatista
      * @return palautetaan true jos rivi löytyy ja false jos riviä ei synny.
      */
     public boolean onkoViisiVaakaan(int x, int y) {
@@ -54,6 +57,8 @@ public class Pelilauta {
      * Metodi kertoo onko laudalle syntynyt laskevassa poikittaissuunnassa
      * viiden saman merkin riviä.
      *
+     * @param x lähtien tästä x-koordinaatista
+     * @param y lähtien tästä y-koordinaatista
      * @return palautetaan true jos rivi löytyy ja false jos riviä ei synny.
      */
     public boolean onkoViisiKaakkoon(int x, int y) {
@@ -73,6 +78,8 @@ public class Pelilauta {
      * Metodi kertoo onko laudalle syntynyt pystysuunnassa viiden saman merkin
      * riviä.
      *
+     * @param x lähtien tästä x-koordinaatista
+     * @param y lähtien tästä y-koordinaatista
      * @return palautetaan true jos rivi löytyy ja false jos riviä ei löydy.
      */
     public boolean onkoViisiPystyyn(int x, int y) {
@@ -92,6 +99,8 @@ public class Pelilauta {
      * Metodi kertoo onko laudalle syntynyt nousevassa poikittaissuunnassa
      * viiden saman merkin riviä.
      *
+     * @param x lähtien tästä x-koordinaatista
+     * @param y lähtien tästä y-koordinaatista
      * @return palautetaan true jos rivi löytyy ja false jos riviä ei löydy.
      */
     public boolean onkoViisiLounaaseen(int x, int y) {
@@ -111,6 +120,8 @@ public class Pelilauta {
      * Metodi palauttaa tiedon siitä voiko kyseiseen koordinaattiin uuden merkin
      * laittaa.
      *
+     * @param x ,x-koordinaatti
+     * @param y ,y-koordinaatti
      * @return true jos merkki voidaan sijoittaa koordinaatteihin ja false jos
      * ei.
      */
@@ -177,10 +188,11 @@ public class Pelilauta {
                 pelilauta[x][y] = Merkki.TYHJA;
             }
         }
-    }   
-    
+    }
+
     /**
-     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä myötäpäivään.
+     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä
+     * myötäpäivään.
      */
     public void kierraVasenYlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
@@ -204,7 +216,8 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä vastapäivään.
+     * Metodi pyöräyttää 90° pelilaudan vasemman ylänurkan 3x3 ruudukon merkkejä
+     * vastapäivään.
      */
     public void kierraVasenYlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
@@ -227,7 +240,8 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä myötäpäivään.
+     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä
+     * myötäpäivään.
      */
     public void kierraVasenAlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
@@ -250,7 +264,8 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä vastapäivään.
+     * Metodi pyöräyttää 90° pelilaudan vasemman alanurkan 3x3 ruudukon merkkejä
+     * vastapäivään.
      */
     public void kierraVasenAlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
@@ -273,13 +288,14 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä myötäpäivään.
+     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä
+     * myötäpäivään.
      */
     public void kierraOikeaYlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 3; x < 6; x++) {
-                apu[x-3][y] = pelilauta[x][y];
+                apu[x - 3][y] = pelilauta[x][y];
             }
         }
         //1. rivi
@@ -296,13 +312,14 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä vastapäivään.
+     * Metodi pyöräyttää 90° pelilaudan oikean ylänurkan 3x3 ruudukon merkkejä
+     * vastapäivään.
      */
     public void kierraOikeaYlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 0; y < 3; y++) {
             for (int x = 3; x < 6; x++) {
-                apu[x-3][y] = pelilauta[x][y];
+                apu[x - 3][y] = pelilauta[x][y];
             }
         }
         //1. rivi
@@ -319,13 +336,14 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä myötäpäivään.
+     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä
+     * myötäpäivään.
      */
     public void kierraOikeaAlaMyotapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 3; x < 6; x++) {
-                apu[x-3][y-3] = pelilauta[x][y];
+                apu[x - 3][y - 3] = pelilauta[x][y];
             }
         }
         //1. rivi
@@ -342,16 +360,17 @@ public class Pelilauta {
     }
 
     /**
-     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä vastapäivään.
+     * Metodi pyöräyttää 90° pelilaudan oikean alanurkan 3x3 ruudukon merkkejä
+     * vastapäivään.
      */
     public void kierraOikeaAlaVastapaivaan() {
         Merkki[][] apu = new Merkki[3][3];
         for (int y = 3; y < 6; y++) {
             for (int x = 3; x < 6; x++) {
-                apu[x-3][y-3] = pelilauta[x][y];
+                apu[x - 3][y - 3] = pelilauta[x][y];
             }
         }
-          //1. rivi
+        //1. rivi
         pelilauta[3][3] = apu[2][0];
         pelilauta[4][3] = apu[2][1];
         pelilauta[5][3] = apu[2][2];

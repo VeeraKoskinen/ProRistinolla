@@ -20,6 +20,9 @@ public class Logiikka {
 
     private Pelilauta lauta;
 
+    /**
+     * Konstruktorissa luodaan pelilauta.
+     */
     public Logiikka() {
         this.lauta = new Pelilauta();
     }
@@ -86,6 +89,7 @@ public class Logiikka {
      * Metodi kertoo voidaanko merkki lisata kyseessä olevaan koordinaattiin.
      * Jos voidaan, niin merkki lisätään.
      *
+     * @param merkki pelattu merkki
      * @return true jos merkki voitiin lisätä laudalle. Jos ei, niin palautetaan
      * false.
      */
@@ -125,6 +129,7 @@ public class Logiikka {
     public Pelilauta getLauta() {
         return lauta;
     }
+
     /**
      * Metodi kertoo jos tilanne on tasan.
      *
@@ -136,14 +141,12 @@ public class Logiikka {
         }
         return false;
     }
+
     /**
      * Metodi alustaa pelin alkutilaan.
-     * 
-     * @return true jos rivi löytyy ja false jos riviä ei synny.
      */
     public void alustaPeliUudelleen() {
-        this.lauta = new Pelilauta();    
+        this.lauta = new Pelilauta();
     }
-
 
 }
