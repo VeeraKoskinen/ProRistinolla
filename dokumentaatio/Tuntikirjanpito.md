@@ -12,7 +12,6 @@ Päivä | Tunnit | Kuvaus
 08.02.2017 | 3.0h | Graafisen käyttöliittymän suunnittelua ja swingin harjoittelua.
 09.02.2017 | 4.0h | Graafisen käyttöliittymän koodauksen aloitus ja javadocin lisäys
 10.02.2017 | 7.5h | Graafisen käyttöliittymän jonkinlaiseen toimintaan saattaminen ja javadoc tekstejä sekä muutama testi ja uusi metodi aiempiin luokkiin. 
+16.02.2017 | 3.0h | Graafisen käyttöliittymän kehityksen pohdiskelua, laudan kiertometodien luonti.
+17.02.2017 | 7.5h | Testien parantelua, raporttien kanssa tappelua yms.
 
-
-## Rästiin seuraavalle viikolle:
-Luokkakaavion päivitys sekä checkstyle -korjaukset, koodin siistintää ja lisää testejä.
