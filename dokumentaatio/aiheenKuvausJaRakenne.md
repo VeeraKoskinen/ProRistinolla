@@ -16,6 +16,12 @@ Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toi
 
 - Pelaajan merkin asettaminen (vaihe 1)
 
+   Merkin koordinaatti ovat laudalla ja ruudussa ei ole ennestään merkkiä (sekvenssikaavio)	
+[sekvenssikaavio1](merkinPelaaminen1.jpg)
+
+   Merkin koordinaatit ovat laudan ulkopuolella, eikä merkkiä näin ollen voida pelata (sekvenssikaavio)
+[sekvenssikaavio2](merkinPelaaminen2.jpg)
+
 - Pelilaudan osan pyörittäminen (vaihe 2)
 
  - onnistuu vain jos pelaaja on asettanut jo merkin vuorollaan

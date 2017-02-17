@@ -37,9 +37,12 @@ public class GraafinenKayttoliittyma extends JFrame {
 
                 Pelaaja vuorossa = lauta.getLogiikka().kummanVuoro();
                 if (lauta.getLogiikka().pelaaVuoro(vuorossa, valittuSarake, valittuRivi)) {
+                    lauta.getLogiikka().vaihdaVuoroa();
                     paivitaPeli(vuorossa.getMerkki());
                 } else {
                     lauta.getLogiikka().alustaPeliUudelleen();  // jos henkilö asettaa merkkiä väärin alkaa peli toistaiseksi alusta
+                    // käyttöliittymän alustus alkutilaan
+                    lauta.setPelinTila(PelinTila.KAYNNISSA);
                 }
                 repaint();
             }
@@ -57,6 +60,7 @@ public class GraafinenKayttoliittyma extends JFrame {
         pack();  // paketoidaan kaikki JFrame:ssa
         setTitle("ProRistinolla");
         setVisible(true);  // näyttää JFrame:n
+        setResizable(false);
 
     }
 

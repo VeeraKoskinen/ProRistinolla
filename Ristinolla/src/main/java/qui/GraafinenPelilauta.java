@@ -22,11 +22,11 @@ public class GraafinenPelilauta extends JPanel {
     public static final int solunKoko = 50;
     public static final int leveys = solunKoko * sarakkeet;
     public static final int korkeus = solunKoko * rivit;
-    public static final int ristikonLeveys = 8;    //ristikon viivojen leveys        
+    public static final int ristikonLeveys = 4;    //ristikon viivojen leveys        
 
     public static final int solunappulanKoko = solunKoko / 6;  // onko tarpeeton
     public static final int symbolinKoko = solunKoko - solunappulanKoko * 2; // 
-    public static final int symbolinViivanLeveys = 8; // piirtoviiva
+    public static final int symbolinViivanLeveys = 4; // piirtoviiva
 
     private Logiikka logiikka;
     private PelinTila pelinTila = PelinTila.KAYNNISSA;
@@ -41,7 +41,7 @@ public class GraafinenPelilauta extends JPanel {
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);    // täyttää taustan
-        setBackground(Color.CYAN); // asettaa taustavärin
+        setBackground(Color.black); // asettaa taustavärin
 
         g.setColor(Color.LIGHT_GRAY);
         for (int viiva = 0; viiva < 6; ++viiva) {
@@ -63,7 +63,7 @@ public class GraafinenPelilauta extends JPanel {
                     g2D.drawLine(x1, y1, x2, y2);
                     g2D.drawLine(x2, y1, x1, y2);
                 } else if (logiikka.getLauta().getPelilauta()[y][x] == Merkki.NOLLA) {
-                    g2D.setColor(Color.magenta);
+                    g2D.setColor(Color.GREEN);
                     g2D.drawOval(x1, y1, symbolinKoko, symbolinKoko);
                 }
             }

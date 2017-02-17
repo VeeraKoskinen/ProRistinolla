@@ -35,7 +35,6 @@ public class Logiikka {
      */
     public boolean pelaaVuoro(Pelaaja p, int x, int y) {
         if (pelaaMerkki(new PeliMerkki(p.getMerkki(), x, y))) {
-            vaihdaVuoroa();
             return true;
         }
         return false;
@@ -139,21 +138,12 @@ public class Logiikka {
     }
     /**
      * Metodi alustaa pelin alkutilaan.
+     * 
      * @return palautetaan true jos rivi löytyy ja false jos riviä ei synny.
      */
     public void alustaPeliUudelleen() {
-        for (int y = 0; y < lauta.getPelilauta()[1].length; y++) {
-            for (int x = 0; x < lauta.getPelilauta().length; x++) {
-                lauta.getPelilauta()[x][y] = Merkki.TYHJA;
-            }
-        }
-        lauta.getPelaaja1().nollaaPelatutMerkit();
-        lauta.getPelaaja1().aloitaVuoro();
-        lauta.getPelaaja2().nollaaPelatutMerkit();
-        lauta.getPelaaja2().lopetaVuoro();
-        lauta.setpelattujenMaara(0);
-        
-
+        this.lauta = new Pelilauta();    
     }
+
 
 }
