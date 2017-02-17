@@ -4,7 +4,7 @@
 ##AIHE:
 
 Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toimii 6x6 kokoinen ruudukko, johon voittaakseen tulee saada viisi omaa merkkiä peräkkäin pystysuuntaan,$
-        Jos tehtävä valmistuu ripeästi, on tarkoituksena laajentaa ohjelmaa siten, että pelialusta jaetaan neljään 3x3 ruutua kokoiseen palaan, jotka muodostavat pelialustan. Nyt $
+        Jos tehtävä valmistuu ripeästi, on tarkoituksena laajentaa ohjelmaa siten, että pelialusta jaetaan neljään 3x3 ruutua kokoiseen palaan, jotka muodostavat pelialustan.
 
 ##KÄYTTÄJÄT:    Pelaaja 1 ja pelaaja 2
 
@@ -16,11 +16,13 @@ Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toi
 
 - Pelaajan merkin asettaminen (vaihe 1)
 
-   Merkin koordinaatti ovat laudalla ja ruudussa ei ole ennestään merkkiä (sekvenssikaavio)	
-[sekvenssikaavio1](merkinPelaaminen1.jpg)
+   Merkin koordinaatit ovat laudalla ja ruudussa ei ole ennestään merkkiä
 
-   Merkin koordinaatit ovat laudan ulkopuolella, eikä merkkiä näin ollen voida pelata (sekvenssikaavio)
-[sekvenssikaavio2](merkinPelaaminen2.jpg)
+![sekvenssikaavio1](merkinPelaaminen1.jpg)
+
+   Merkin koordinaatit ovat laudan ulkopuolella, eikä merkkiä näin ollen voida pelata
+
+![sekvenssikaavio2](merkinPelaaminen2.jpg)
 
 - Pelilaudan osan pyörittäminen (vaihe 2)
 
