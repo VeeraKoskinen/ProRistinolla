@@ -14,4 +14,4 @@ Päivä | Tunnit | Kuvaus
 10.02.2017 | 7.5h | Graafisen käyttöliittymän jonkinlaiseen toimintaan saattaminen ja javadoc tekstejä sekä muutama testi ja uusi metodi aiempiin luokkiin. 
 16.02.2017 | 3.0h | Graafisen käyttöliittymän kehityksen pohdiskelua, laudan kiertometodien luonti.
 17.02.2017 | 7.5h | Testien parantelua, raporttien kanssa tappelua yms.
-
+22.02.2017 | 3.0h | Graafisen käyttöliittymän korjailua ja lisäyksiä siihen.
