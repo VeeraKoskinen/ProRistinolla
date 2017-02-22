@@ -24,7 +24,7 @@ public class GraafinenPelilauta extends JPanel {
     public static final int korkeus = solunKoko * rivit;
     public static final int ristikonLeveys = 4;    //ristikon viivojen leveys        
 
-    public static final int solunappulanKoko = solunKoko / 6;  // onko tarpeeton
+    public static final int solunappulanKoko = solunKoko / 6; 
     public static final int symbolinKoko = solunKoko - solunappulanKoko * 2; // 
     public static final int symbolinViivanLeveys = 4; // piirtoviiva
 
@@ -33,9 +33,9 @@ public class GraafinenPelilauta extends JPanel {
 
     private JLabel tilannepalkki;  // statusbar
 
-    public GraafinenPelilauta(JLabel tilasarake) {
-        this.tilannepalkki = tilasarake;
-        this.logiikka = new Logiikka();
+    public GraafinenPelilauta(Logiikka logiikka) {
+        this.tilannepalkki = new JLabel(" ");
+        this.logiikka = logiikka;
     }
 
     @Override

@@ -405,7 +405,7 @@ public class PelilautaTest {
     // kierraOikeaYlaMyotapaivaan testit
     
     @Test
-    public void kierraOikeaYlaMyotapaivaanTesti1() {
+    public void kierraOikeaYlamyotapaivaanTesti1() {
         lauta.getPelilauta()[3][0] = Merkki.RISTI;
         lauta.getPelilauta()[4][2] = Merkki.NOLLA;
         lauta.getPelilauta()[5][1] = Merkki.RISTI;
