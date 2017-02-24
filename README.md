@@ -13,7 +13,7 @@ Kaaviota klikkaamalla pääset alkuperäiseen kuvaan :)
 
 ## Raportit
 
-[pit-raportti](https://htmlpreview.github.io/?https://github.com/VeeraKoskinen/ProRistinolla/blob/master/dokumentaatio/pit-raportit/201702172319/index.html)
+[pit-raportti](https://htmlpreview.github.io/?https://github.com/VeeraKoskinen/ProRistinolla/blob/master/dokumentaatio/pit-raportit/201702242329/index.html)
 
 [checkstyle-raportti](https://htmlpreview.github.io/?https://github.com/VeeraKoskinen/ProRistinolla/blob/master/dokumentaatio/checkstyle-raportit/checkstyle.html)
 
