@@ -14,8 +14,8 @@ import logiikka.*;
  */
 public class Tekstikayttoliittyma {
 
-    private Logiikka l;
-    private Scanner lukija;
+    private final Logiikka l;
+    private final Scanner lukija;
 
     public Tekstikayttoliittyma() {
         l = new Logiikka();
@@ -29,7 +29,7 @@ public class Tekstikayttoliittyma {
         boolean voitto = false;
         while (voitto == false) {
             if (l.getLauta().getPelaaja1().onkoVuoro()) {
-                l.getLauta().tulostaLauta();
+//                l.getLauta().tulostaLauta();
                 System.out.println(""); // kyselyt
                 System.out.println("Anna x-koordinaatti:");
                 int x = Integer.parseInt(lukija.nextLine());
@@ -39,7 +39,7 @@ public class Tekstikayttoliittyma {
                     voitto = l.onkoViidenSuoraa(l.getLauta().getPelaaja1().getMerkki());
                 }
             } else {
-                l.getLauta().tulostaLauta();
+//                l.getLauta().tulostaLauta();
                 System.out.println("");
                 // kyselyt
                 System.out.println("Anna x-koordinaatti:");
@@ -57,7 +57,7 @@ public class Tekstikayttoliittyma {
             }
         }
         System.out.println("Lopputulos:");
-        l.getLauta().tulostaLauta();
+//        l.getLauta().tulostaLauta();
         if (tasapeli && voitto == false) {
             System.out.println("Pelasitte tasapelin.");
         } else if (l.getLauta().getPelaaja1().onkoVuoro()) {

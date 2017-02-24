@@ -170,14 +170,14 @@ public class Pelilauta {
     /**
      * Metodi tulostaa laudan tekstikäyttöliittymän tilannetietona.
      */
-    public void tulostaLauta() {
-        for (int y = 0; y < pelilauta[1].length; y++) {
-            for (int x = 0; x < pelilauta.length; x++) {
-                System.out.print(pelilauta[x][y]);
-            }
-            System.out.println("");
-        }
-    }
+//    public void tulostaLauta() {
+//        for (int y = 0; y < pelilauta[1].length; y++) {
+//            for (int x = 0; x < pelilauta.length; x++) {
+//                System.out.print(pelilauta[x][y]);
+//            }
+//            System.out.println("");
+//        }
+//    }
 
     /**
      * Metodi palauttaa pelilaudan taulukon alkutilaan.
