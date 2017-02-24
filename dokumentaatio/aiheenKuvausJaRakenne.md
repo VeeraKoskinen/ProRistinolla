@@ -50,3 +50,9 @@ Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toi
 
 ###LUOKKAKAAVIO
 ![Luokkakaavio](Luokkakaavio.png)
+
+
+### Rakennekuvaus:
+Ohjelma on toteutettu helpoin ja yksinkertaisin metodein. Pääosa ohjelman rakenteesta tiivistyy logiikka luokkaan, jonka metodein peliä ohjaillaan. Logiikalla on yksi pelilauta, jonka avulla pelilaudan tilannetta pidetään yllä ja pelilaudalla puolestaan on kaksi pelaajaa, jotka omaavat omat pelimerkkinsä. Itse merkit sekä pelintilat on toteutettu enumein. 
+
+Graafisen käyttöliittymän luomiseen on käytetty swingiä. Swingillä piirretään pelilauta ja pelimerkit sekä pelilaudan päälle ilmestyvä pyöräytysikkuna.

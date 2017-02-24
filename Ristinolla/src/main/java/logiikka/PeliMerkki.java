@@ -18,12 +18,12 @@ public class PeliMerkki {
      * Konstruktorissa asetetaan pelimerkille koordinaatit sekä sen "tunnustama"
      * merkki.
      *
-     * @param merkki
+     * @param m merkki jota pelimerkki "tunnustaa"
      * @param koordinaattiX määrää x-koordinaatin
      * @param koordinaattiY määrää y-koordinaatin
      */
-    public PeliMerkki(Merkki merkki, int koordinaattiX, int koordinaattiY) {
-        this.merkki = merkki;
+    public PeliMerkki(Merkki m, int koordinaattiX, int koordinaattiY) {
+        this.merkki = m;
         this.x = koordinaattiX;
         this.y = koordinaattiY;
     }

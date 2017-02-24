@@ -117,6 +117,14 @@ public class PelilautaTest {
         assertFalse(lauta.onkoViisiVaakaan(2, 5));
     }
     
+    @Test
+    public void onkoViisiVaakaan7() {
+        this.lauta = new Pelilauta();
+        lauta.getPelilauta()[4][5] = Merkki.NOLLA;
+        lauta.getPelilauta()[5][5] = Merkki.NOLLA;
+        assertFalse(lauta.onkoViisiVaakaan(5, 5));
+    }
+    
     
 
     // onkoViisiKaakkoon testit
