@@ -15,3 +15,4 @@ Päivä | Tunnit | Kuvaus
 16.02.2017 | 3.0h | Graafisen käyttöliittymän kehityksen pohdiskelua, laudan kiertometodien luonti.
 17.02.2017 | 7.5h | Testien parantelua, raporttien kanssa tappelua yms.
 22.02.2017 | 3.0h | Graafisen käyttöliittymän korjailua ja lisäyksiä siihen.
+02.03.2017 | 2.0h | Valintaikkunoita peliin sekä ohjeiden päivitystä.
