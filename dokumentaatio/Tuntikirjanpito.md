@@ -16,3 +16,4 @@ Päivä | Tunnit | Kuvaus
 17.02.2017 | 7.5h | Testien parantelua, raporttien kanssa tappelua yms.
 22.02.2017 | 3.0h | Graafisen käyttöliittymän korjailua ja lisäyksiä siihen.
 02.03.2017 | 2.0h | Valintaikkunoita peliin sekä ohjeiden päivitystä.
+03.03.2+17 | 2.0h | Projektin viimeistelyt ja pienen toimintaongelman korjaus.
