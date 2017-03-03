@@ -33,8 +33,8 @@ public class GraafinenPelilauta extends JPanel {
 
     private JLabel tilannepalkki;  // statusbar
 
-    public GraafinenPelilauta(Logiikka logiikka) {
-        this.tilannepalkki = new JLabel(" ");
+    public GraafinenPelilauta(Logiikka logiikka, JLabel tilanne) {
+        this.tilannepalkki = tilanne;
         this.logiikka = logiikka;
     }
 
@@ -76,14 +76,14 @@ public class GraafinenPelilauta extends JPanel {
                 tilannepalkki.setText("O:n VUORO");
             }
         } else if (pelinTila == PelinTila.TASAPELI) {
-            tilannepalkki.setForeground(Color.green);
+            tilannepalkki.setForeground(Color.BLUE);
             tilannepalkki.setText("Tasapeli!");
         } else if (pelinTila == PelinTila.RISTI_VOITTAA) {
-            tilannepalkki.setForeground(Color.green);
-            tilannepalkki.setText("'X' VOITTI!");
+            tilannepalkki.setForeground(Color.RED);
+            tilannepalkki.setText("X VOITTI! (jatka klikkaamalla ruutua)");
         } else if (pelinTila == PelinTila.NOLLA_VOITTAA) {
-            tilannepalkki.setForeground(Color.green);
-            tilannepalkki.setText("'O' VOITTI!");
+            tilannepalkki.setForeground(Color.RED);
+            tilannepalkki.setText("O VOITTI! (jatka klikkaamalla ruutua)");
         }
     }
 

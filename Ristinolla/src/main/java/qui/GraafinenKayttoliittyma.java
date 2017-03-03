@@ -5,11 +5,12 @@
  */
 package qui;
 
+//import com.apple.eawt.AppEvent;
 import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import logiikka.*;
-import qui.*;
+
 
 /**
  *
@@ -20,19 +21,20 @@ public class GraafinenKayttoliittyma extends JFrame {
     private JLayeredPane nakyma;
     private GraafinenPelilauta lauta;
     private GraafinenPyorayttaja pyorayttaja;
+    private GraafinenValikko1 valikko1;
+    private GraafinenValikko2 valikko2;
     private Logiikka logiikka;
-    private JLabel palkki;
-    
+    private JLabel palkki1;
 
     public GraafinenKayttoliittyma() {
         this.logiikka = new Logiikka();
-        this.palkki = new JLabel();
+        this.palkki1 = new JLabel();
         this.nakyma = new JLayeredPane();
         int leveys = 300;
         int korkeus = 300;
         Dimension ikkuna = new Dimension(leveys, korkeus);
         nakyma.setPreferredSize(ikkuna);
-        this.lauta = new GraafinenPelilauta(logiikka);
+        this.lauta = new GraafinenPelilauta(logiikka, palkki1);
         lauta.setBounds(0, 0, leveys, korkeus);
 
         lauta.addMouseListener(new MouseAdapter() {
@@ -43,19 +45,21 @@ public class GraafinenKayttoliittyma extends JFrame {
 
                 int valittuRivi = hiiriX / lauta.getSolunKoko();
                 int valittuSarake = hiiriY / lauta.getSolunKoko();
-
-                Pelaaja vuorossa = lauta.getLogiikka().kummanVuoro();
-                if (lauta.getLogiikka().pelaaVuoro(vuorossa, valittuSarake, valittuRivi)) {
-                    nakyma.moveToFront(pyorayttaja);
+                
+                if (lauta.getPelinTila() == PelinTila.KAYNNISSA) {
+                    Pelaaja vuorossa = lauta.getLogiikka().kummanVuoro();
+                    if (lauta.getLogiikka().pelaaVuoro(vuorossa, valittuSarake, valittuRivi)) {
+                        nakyma.moveToFront(pyorayttaja);
+                    } else {
+                        nakyma.moveToFront(valikko1);
+                    }
                 } else {
-                    lauta.getLogiikka().alustaPeliUudelleen();  // jos henkilö asettaa merkkiä väärin alkaa peli toistaiseksi alusta
-                    // käyttöliittymän alustus alkutilaan
-                    lauta.setPelinTila(PelinTila.KAYNNISSA);
+                    nakyma.moveToFront(valikko2);
                 }
                 repaint();
             }
         });
-        
+
         nakyma.add(lauta);
         this.pyorayttaja = new GraafinenPyorayttaja(logiikka);
         pyorayttaja.setBounds(0, 0, leveys, korkeus);
@@ -64,7 +68,7 @@ public class GraafinenKayttoliittyma extends JFrame {
             public void mouseClicked(MouseEvent event) {
                 int hiiriY = event.getX();
                 int hiiriX = event.getY();
-               
+
                 if (hiiriX > 50 && hiiriX < 100 && hiiriY > 0 && hiiriY < 50) {  // vasemman yläkulman pyöraytys myötäpäivään
                     lauta.getLogiikka().getLauta().kierraVasenYlaMyotapaivaan();
                     paivitaPeli();
@@ -101,6 +105,48 @@ public class GraafinenKayttoliittyma extends JFrame {
             }
         });
         nakyma.add(pyorayttaja);
+
+        this.valikko1 = new GraafinenValikko1();
+        valikko1.setBounds(0, 0, leveys, korkeus);
+        valikko1.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                int hiiriX = event.getX();
+                int hiiriY = event.getY();
+
+                if (hiiriX > 40 && hiiriX < 155 && hiiriY > 80 && hiiriY < 115) {
+                    lauta.getLogiikka().alustaPeliUudelleen();
+                    lauta.setPelinTila(PelinTila.KAYNNISSA);
+                    nakyma.moveToFront(lauta);
+                } else if (hiiriX > 135 && hiiriX < 245 && hiiriY > 180 && hiiriY < 215) {
+//                    lauta.setPelinTila(PelinTila.KAYNNISSA);
+                    nakyma.moveToFront(lauta);                    
+                }
+                repaint();
+            }
+        });
+        nakyma.add(valikko1);
+        
+        this.valikko2 = new GraafinenValikko2();
+        valikko2.setBounds(0, 0, leveys, korkeus);
+        valikko2.addMouseListener(new MouseAdapter() {
+            @Override
+            public void mouseClicked(MouseEvent event) {
+                int hiiriX = event.getX();
+                int hiiriY = event.getY();
+
+                if (hiiriX > 40 && hiiriX < 155 && hiiriY > 80 && hiiriY < 115) {
+                    lauta.getLogiikka().alustaPeliUudelleen();
+                    lauta.setPelinTila(PelinTila.KAYNNISSA);
+                    nakyma.moveToFront(lauta);
+                } else if (hiiriX > 135 && hiiriX < 245 && hiiriY > 180 && hiiriY < 215) {
+                    dispose();
+                }
+                repaint();
+            }
+        });
+        nakyma.add(valikko2);
+
         lauta.getTilannepalkki().setFont(new Font(Font.DIALOG_INPUT, Font.BOLD, 15));
         lauta.getTilannepalkki().setBorder(BorderFactory.createEmptyBorder(2, 5, 4, 5));
 
@@ -122,9 +168,9 @@ public class GraafinenKayttoliittyma extends JFrame {
             lauta.setPelinTila(PelinTila.TASAPELI);
         } else if (lauta.getLogiikka().onkoViidenSuoraa(Merkki.RISTI)) {
             lauta.setPelinTila(PelinTila.RISTI_VOITTAA);
-        }  else if (lauta.getLogiikka().onkoViidenSuoraa(Merkki.NOLLA)) {
+        } else if (lauta.getLogiikka().onkoViidenSuoraa(Merkki.NOLLA)) {
             lauta.setPelinTila(PelinTila.NOLLA_VOITTAA);
-        }  else if (lauta.getLogiikka().onkoTasapeli()) {
+        } else if (lauta.getLogiikka().onkoTasapeli()) {
             lauta.setPelinTila(PelinTila.TASAPELI);
         }
         lauta.getLogiikka().vaihdaVuoroa();

@@ -8,6 +8,8 @@
     <suppress files="GraafinenKayttoliittyma.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="GraafinenPelilauta.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="GraafinenPyorayttaja.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="GraafinenValikko1.java" checks="[a-zA-Z0-9]*"/>
+    <suppress files="GraafinenValikko2.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Main.java" checks="[a-zA-Z0-9]*"/>
     <suppress files="Tekstikayttoliittyma.java" checks="[a-zA-Z0-9]*"/>
 </suppressions>

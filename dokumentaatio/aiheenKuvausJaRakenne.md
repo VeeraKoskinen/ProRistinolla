@@ -3,8 +3,7 @@
 
 ##AIHE:
 
-Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toimii 6x6 kokoinen ruudukko, johon voittaakseen tulee saada viisi omaa merkkiä peräkkäin pystysuuntaan,$
-        Jos tehtävä valmistuu ripeästi, on tarkoituksena laajentaa ohjelmaa siten, että pelialusta jaetaan neljään 3x3 ruutua kokoiseen palaan, jotka muodostavat pelialustan.
+Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toimii 6x6 kokoinen ruudukko, johon voittaakseen tulee saada viisi omaa merkkiä peräkkäin pystysuuntaan. Jos projekti valmistuu ripeästi, on tarkoituksena laajentaa ohjelmaa siten, että pelialusta jaetaan neljään 3x3 ruutua kokoiseen alueeseen, jotka muodostavat pelialustan.
 
 ##KÄYTTÄJÄT:    Pelaaja 1 ja pelaaja 2
 
@@ -43,11 +42,11 @@ Toteutetaan eräänlainen ristinolla -peli kaksin pelattavaksi. Pelialustana toi
 - Uuden pelin aloittaminen
 
 
-###LUOKKAKAAVIO
+##LUOKKAKAAVIO
 ![Luokkakaavio](Luokkakaavio.png)
 
 
 ### Rakennekuvaus:
-Ohjelma on toteutettu helpoin ja yksinkertaisin metodein. Pääosa ohjelman rakenteesta tiivistyy logiikka luokkaan, jonka metodein peliä ohjaillaan. Logiikalla on yksi pelilauta, jonka avulla pelilaudan tilannetta pidetään yllä ja pelilaudalla puolestaan on kaksi pelaajaa, jotka omaavat omat pelimerkkinsä. Itse merkit sekä pelintilat on toteutettu enumein. 
+Ohjelma on toteutettu helpoin ja yksinkertaisin metodein. Pääosa ohjelman rakenteesta tiivistyy logiikka luokkaan, jonka metodein peliä ohjaillaan. Logiikalla on yksi pelilauta, jonka avulla pelilaudan tilannetta pidetään yllä. Pelilaudalla on puolestaan kaksi pelaajaa, jotka omaavat omat pelimerkkinsä. Itse merkit sekä pelintilat on toteutettu enumein. 
 
-Graafisen käyttöliittymän luomiseen on käytetty swingiä. Swingillä piirretään pelilauta ja pelimerkit sekä pelilaudan päälle ilmestyvä pyöräytysikkuna.
+Graafisen käyttöliittymän luomiseen on käytetty swingiä. Swingillä piirretään pelilauta ja pelimerkit, pelilaudan päälle ilmestyvä pyöräytysikkuna sekä valikkopaneelit.
